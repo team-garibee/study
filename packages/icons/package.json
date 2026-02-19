@@ -1,0 +1,28 @@
+{
+  "name": "@mumukji/icons",
+  "version": "0.0.0",
+  "description": "React icon components for Mumukji design system.",
+  "private": false,
+  "author": "team-garibee",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/team-garibee/mumukji-ui.git",
+    "directory": "packages/icons"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "clean": "rm -rf dist"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "keywords": [
+    "design-system",
+    "icons",
+    "svg",
+    "react",
+    "mumukji"
+  ]
+}
