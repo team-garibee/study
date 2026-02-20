@@ -10,7 +10,10 @@
     "url": "https://github.com/team-garibee/mumukji-ui.git",
     "directory": "packages/icons"
   },
+  "types": "dist/index.d.ts",
   "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "tsc",
     "clean": "rm -rf dist"
   },
   "peerDependencies": {
