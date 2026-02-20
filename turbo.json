@@ -6,6 +6,12 @@
       "outputs": ["dist/**", "storybook-static/**"],
       "dependsOn": ["^build"]
     },
+
+    "typecheck": {
+      "dependsOn": ["^typecheck"],
+      "outputs": []
+    },
+
     "clean": {
       "cache": false
     }
