@@ -1,0 +1,22 @@
+{
+  "name": "@mumukji/tokens",
+  "version": "0.0.0",
+  "description": "Design tokens for Mumukji design system. Includes colors, typography, spacing, and other foundational styles.",
+  "private": false,
+  "author": "team-garibee",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/team-garibee/mumukji-ui.git",
+    "directory": "packages/tokens"
+  },
+  "scripts": {
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "design-system",
+    "design-tokens",
+    "tokens",
+    "mumukji"
+  ]
+}

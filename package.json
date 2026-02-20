@@ -1,0 +1,17 @@
+{
+  "name": "mumukji",
+  "private": true,
+  "author": "team-garibee",
+  "license": "MIT",
+  "description": "Mumukji design system monorepo.",
+  "packageManager": "pnpm@10.26.1",
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean"
+  },
+  "devDependencies": {
+    "turbo": "^2.8.10"
+  }
+}
