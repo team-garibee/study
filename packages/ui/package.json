@@ -12,8 +12,9 @@
   },
   "types": "dist/index.d.ts",
   "scripts": {
+    "watch": "rollup -cw",
     "typecheck": "tsc --noEmit",
-    "build": "tsc",
+    "build": "tsc && rollup -c",
     "clean": "rm -rf dist"
   },
   "dependencies": {
@@ -34,6 +35,7 @@
   "devDependencies": {
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "react": "^19.2.4"
+    "react": "^19.2.4",
+    "rollup": "^4.58.0"
   }
 }

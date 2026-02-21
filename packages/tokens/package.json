@@ -12,8 +12,9 @@
   },
   "types": "dist/index.d.ts",
   "scripts": {
+    "watch": "rollup -cw",
     "typecheck": "tsc --noEmit",
-    "build": "tsc",
+    "build": "tsc && rollup -c",
     "clean": "rm -rf dist"
   },
   "keywords": [
@@ -21,5 +22,8 @@
     "design-tokens",
     "tokens",
     "mumukji"
-  ]
+  ],
+  "devDependencies": {
+    "rollup": "^4.58.0"
+  }
 }
