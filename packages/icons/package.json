@@ -10,7 +10,10 @@
     "url": "https://github.com/team-garibee/mumukji-ui.git",
     "directory": "packages/icons"
   },
+  "types": "dist/index.d.ts",
   "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "tsc",
     "clean": "rm -rf dist"
   },
   "peerDependencies": {
@@ -23,5 +26,10 @@
     "icons",
     "svg",
     "mumukji"
-  ]
+  ],
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "react": "^19.2.4"
+  }
 }

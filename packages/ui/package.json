@@ -10,12 +10,15 @@
     "url": "https://github.com/team-garibee/mumukji-ui.git",
     "directory": "packages/ui"
   },
+  "types": "dist/index.d.ts",
   "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "tsc",
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@mumukji/tokens": "workspace:*",
-    "@mumukji/icons": "workspace:*"
+    "@mumukji/icons": "workspace:*",
+    "@mumukji/tokens": "workspace:*"
   },
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
@@ -27,5 +30,10 @@
     "ui",
     "component-library",
     "mumukji"
-  ]
+  ],
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "react": "^19.2.4"
+  }
 }
