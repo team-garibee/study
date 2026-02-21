@@ -12,10 +12,6 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
 
-    "declaration": true,
-    "declarationMap": true,
-    "emitDeclarationOnly": true,
-
     "resolvePackageJsonExports": true,
     "forceConsistentCasingInFileNames": true
   },
