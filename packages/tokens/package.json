@@ -24,18 +24,18 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "scripts": {
-    "watch": "rollup -cw",
-    "typecheck": "tsc --noEmit",
-    "build": "tsc -p tsconfig.build.json && rollup -c",
-    "clean": "rm -rf dist"
-  },
   "keywords": [
     "design-system",
     "design-tokens",
     "tokens",
     "mumukji"
   ],
+  "scripts": {
+    "watch": "rollup -cw",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc -p tsconfig.build.json && rollup -c",
+    "clean": "rm -rf dist"
+  },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^29.0.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
