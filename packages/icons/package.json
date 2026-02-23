@@ -10,6 +10,7 @@
     "url": "https://github.com/team-garibee/mumukji-ui.git",
     "directory": "packages/icons"
   },
+  "sideEffects": false,
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/index.d.ts",
@@ -23,7 +24,7 @@
   "scripts": {
     "watch": "rollup -cw",
     "typecheck": "tsc --noEmit",
-    "build": "tsc && rollup -c",
+    "build": "tsc -p tsconfig.build.json && rollup -c",
     "clean": "rm -rf dist"
   },
   "peerDependencies": {

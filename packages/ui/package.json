@@ -23,7 +23,7 @@
   "scripts": {
     "watch": "rollup -cw",
     "typecheck": "tsc --noEmit",
-    "build": "tsc && rollup -c",
+    "build": "tsc -p tsconfig.build.json && rollup -c",
     "clean": "rm -rf dist"
   },
   "dependencies": {
