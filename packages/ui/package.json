@@ -10,29 +10,24 @@
     "url": "https://github.com/team-garibee/mumukji-ui.git",
     "directory": "packages/ui"
   },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "*.css",
+    "*.scss"
+  ],
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/index.d.ts",
+  "style": "./dist/index.css",
   "exports": {
     ".": {
       "import": "./dist/esm/index.js",
       "require": "./dist/cjs/index.js",
       "types": "./dist/index.d.ts"
-    }
-  },
-  "scripts": {
-    "watch": "rollup -cw",
-    "typecheck": "tsc --noEmit",
-    "build": "tsc -p tsconfig.build.json && rollup -c",
-    "clean": "rm -rf dist"
-  },
-  "dependencies": {
-    "@mumukji/icons": "workspace:*",
-    "@mumukji/tokens": "workspace:*"
-  },
-  "peerDependencies": {
-    "react": "^18.0.0 || ^19.0.0",
-    "react-dom": "^18.0.0 || ^19.0.0"
+    },
+    "./style.css": "./dist/index.css"
   },
   "keywords": [
     "design-system",
@@ -41,10 +36,38 @@
     "component-library",
     "mumukji"
   ],
+  "browserslist": [
+    ">0.5%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "scripts": {
+    "watch": "rollup -cw",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc -p tsconfig.build.json && rollup -c && mv dist/esm/index.css dist/index.css && rm -rf dist/types dist/cjs/index.css",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@mumukji/icons": "workspace:*",
+    "@mumukji/tokens": "workspace:*",
+    "tslib": "^2.8.1"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^29.0.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-typescript": "^12.3.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.4.24",
     "react": "^19.2.4",
-    "rollup": "^4.58.0"
+    "react-dom": "^19.2.4",
+    "rollup": "^4.58.0",
+    "rollup-plugin-dts": "^6.3.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "sass": "^1.97.3"
   }
 }
