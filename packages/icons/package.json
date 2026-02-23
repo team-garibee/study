@@ -21,17 +21,18 @@
     ".": {
       "import": "./dist/esm/index.js",
       "require": "./dist/cjs/index.js",
-      "types": "./dist/types/index.d.ts"
+      "types": "./dist/index.d.ts"
     },
     "./*": {
       "import": "./dist/esm/*.js",
-      "require": "./dist/cjs/*.js"
+      "require": "./dist/cjs/*.js",
+      "types": "./dist/index.d.ts"
     }
   },
   "scripts": {
     "watch": "rollup -cw",
     "typecheck": "tsc --noEmit",
-    "build": "tsc -p tsconfig.build.json && rollup -c",
+    "build": "tsc -p tsconfig.build.json && rollup -c && rm -rf dist/types",
     "clean": "rm -rf dist"
   },
   "peerDependencies": {
