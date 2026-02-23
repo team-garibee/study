@@ -10,10 +10,19 @@
     "url": "https://github.com/team-garibee/mumukji-ui.git",
     "directory": "packages/tokens"
   },
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs.js",
+      "import": "./dist/index.esm.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "build": "tsc",
+    "build": "rollup -c",
     "clean": "rm -rf dist"
   },
   "keywords": [
@@ -21,5 +30,11 @@
     "design-tokens",
     "tokens",
     "mumukji"
-  ]
+  ],
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^12.3.0",
+    "rollup": "^4.59.0",
+    "rollup-plugin-dts": "^6.3.0",
+    "tslib": "^2.8.1"
+  }
 }
