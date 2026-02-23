@@ -9,14 +9,14 @@ export default [
     external: ["react", "react-dom", "react/jsx-runtime"],
     output: [
       {
-        file: "dist/esm/index.js",
+        dir: "dist/esm",
         format: "esm",
         sourcemap: true,
         preserveModules: true,
         preserveModulesRoot: "src",
       },
       {
-        file: "dist/cjs/index.js",
+        dir: "dist/cjs",
         format: "cjs",
         sourcemap: true,
         preserveModules: true,
