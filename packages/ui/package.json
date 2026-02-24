@@ -21,6 +21,7 @@
     },
     "./styles": "./dist/index.css"
   },
+  "sideEffects": ["./dist/index.css"],
   "scripts": {
     "typecheck": "tsc --noEmit",
     "build": "rollup -c",
@@ -49,7 +50,6 @@
     "rollup": "^4.59.0",
     "rollup-plugin-dts": "^6.3.0",
     "rollup-plugin-postcss": "^4.0.2",
-    "sass": "^1.97.3",
-    "tslib": "^2.8.1"
+    "sass": "^1.97.3"
   }
 }
