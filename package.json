@@ -23,6 +23,10 @@
     ],
     "**/*.{json,md,html}": [
       "pnpm exec prettier --write"
+    ],
+    "**/*.{scss,css}": [
+      "pnpm exec prettier --write",
+      "pnpm exec stylelint --fix --quiet"
     ]
   },
   "devDependencies": {
@@ -47,6 +51,7 @@
     "prettier": "^3.8.1",
     "stylelint": "^17.4.0",
     "stylelint-config-css-modules": "^4.6.0",
+    "stylelint-config-property-sort-order-smacss": "^11.1.0",
     "stylelint-config-standard-scss": "^17.0.0",
     "turbo": "^2.8.10",
     "typescript": "^5.9.3"
