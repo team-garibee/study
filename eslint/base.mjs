@@ -35,7 +35,7 @@ export const baseConfig = [
     },
 
     rules: {
-      /*  TypeScript */
+      /* TypeScript */
       '@typescript-eslint/no-unused-vars': ['error', { varsIgnorePattern: '^_' }],
       '@typescript-eslint/consistent-type-imports': 'error',
       '@typescript-eslint/no-explicit-any': 'error',
