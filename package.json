@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^20.4.2",
-    "@eslint/js": "^10.0.1",
+    "@eslint/js": "^9.39.3",
     "@ls-lint/ls-lint": "^2.3.1",
     "@types/node": "^25.3.0",
     "@typescript-eslint/eslint-plugin": "^8.56.1",
@@ -45,6 +45,9 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
     "prettier": "^3.8.1",
+    "stylelint": "^17.4.0",
+    "stylelint-config-css-modules": "^4.6.0",
+    "stylelint-config-standard-scss": "^17.0.0",
     "turbo": "^2.8.10",
     "typescript": "^5.9.3"
   }
