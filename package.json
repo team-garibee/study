@@ -9,13 +9,15 @@
     "build": "turbo run build",
     "typecheck": "turbo run typecheck",
     "dev": "turbo run dev",
-    "lint": "turbo run lint",
     "clean": "turbo run clean",
+    "lint": "turbo run lint",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "ls-lint": "ls-lint"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@ls-lint/ls-lint": "^2.3.1",
     "@types/node": "^25.3.0",
     "@typescript-eslint/eslint-plugin": "^8.56.1",
     "@typescript-eslint/parser": "^8.56.1",
