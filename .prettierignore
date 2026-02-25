@@ -1,0 +1,18 @@
+# dependency
+node_modules
+
+# turborepo
+.turbo
+
+# build outputs
+dist
+build
+
+# test
+coverage
+
+# storybook
+.storybook-static
+
+# misc
+*.log
