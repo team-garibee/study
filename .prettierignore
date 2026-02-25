@@ -1,0 +1,18 @@
+# 노드 패키지
+node_modules
+
+# 빌드 결과물
+dist
+
+# 환경 변수 파일
+.env
+.env.*.local
+
+# Git 관련 파일
+.git
+.github
+
+# 기타
+*.log
+.vscode
+pnpm-lock.yaml
