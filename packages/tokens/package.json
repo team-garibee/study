@@ -34,7 +34,9 @@
     "watch": "rollup -cw",
     "typecheck": "tsc --noEmit",
     "build": "tsc -p tsconfig.build.json && rollup -c",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^29.0.0",
