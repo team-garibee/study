@@ -34,6 +34,7 @@
     "watch": "rollup -cw",
     "typecheck": "tsc --noEmit",
     "build": "tsc -p tsconfig.build.json && rollup -c",
+    "lint": "eslint src/**/*.{ts,tsx}",
     "clean": "rm -rf dist"
   },
   "devDependencies": {

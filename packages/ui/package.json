@@ -45,6 +45,7 @@
     "watch": "rollup -cw",
     "typecheck": "tsc --noEmit",
     "build": "tsc -p tsconfig.build.json && rollup -c && mv dist/esm/index.css dist/index.css && rm -rf dist/types",
+    "lint": "eslint src/**/*.{ts,tsx}",
     "clean": "rm -rf dist"
   },
   "dependencies": {

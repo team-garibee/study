@@ -40,6 +40,7 @@
     "watch": "rollup -cw",
     "typecheck": "tsc --noEmit",
     "build": "tsc -p tsconfig.build.json && rollup -c && rm -rf dist/types",
+    "lint": "eslint src/**/*.{ts,tsx}",
     "clean": "rm -rf dist"
   },
   "peerDependencies": {

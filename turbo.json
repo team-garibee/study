@@ -12,6 +12,10 @@
       "outputs": []
     },
 
+    "lint": {
+      "outputs": []
+    },
+
     "clean": {
       "cache": false
     }
