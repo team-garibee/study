@@ -8,10 +8,12 @@ ls:
 
   # React 컴포넌트는 PascalCase
   packages/ui:
-    .tsx: pascalcase
+    .dir: kebabcase
+    .tsx: PascalCase
 
   packages/icons:
-    .tsx: pascalcase
+    .dir: kebabcase
+    .tsx: PascalCase
 
 ignore:
   - node_modules
@@ -20,5 +22,6 @@ ignore:
   - build
   - coverage
   - .turbo
+  - '**/.turbo'
   - .git
   - .vscode
