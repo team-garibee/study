@@ -36,11 +36,6 @@
     "component-library",
     "mumukji"
   ],
-  "browserslist": [
-    ">0.5%",
-    "last 2 versions",
-    "not dead"
-  ],
   "scripts": {
     "watch": "rollup -cw",
     "typecheck": "tsc --noEmit",
@@ -62,7 +57,6 @@
     "@rollup/plugin-typescript": "^12.3.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "autoprefixer": "^10.4.24",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "rollup": "^4.58.0",
