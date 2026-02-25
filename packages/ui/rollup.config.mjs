@@ -3,7 +3,6 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import postcss from "rollup-plugin-postcss";
 import dts from "rollup-plugin-dts";
-import autoprefixer from "autoprefixer";
 
 export default [
   {
@@ -11,14 +10,11 @@ export default [
     external: ["react", "react-dom", "react/jsx-runtime"],
     output: [
       {
-        file: "dist/esm/index.js",
+        dir: "dist/esm",
         format: "esm",
         sourcemap: true,
-      },
-      {
-        file: "dist/cjs/index.js",
-        format: "cjs",
-        sourcemap: true,
+        preserveModules: true,
+        preserveModulesRoot: "src",
       },
     ],
     plugins: [
@@ -27,13 +23,35 @@ export default [
       typescript({ tsconfig: "./tsconfig.json" }),
       postcss({
         modules: true,
-        extract: "index.css",
+        extract: true,
         use: ["sass"],
-        plugins: [autoprefixer()],
       }),
     ],
   },
-
+  {
+    input: "src/index.ts",
+    external: ["react", "react-dom", "react/jsx-runtime"],
+    output: [
+      {
+        dir: "dist/cjs",
+        format: "cjs",
+        sourcemap: true,
+        preserveModules: true,
+        preserveModulesRoot: "src",
+      },
+    ],
+    plugins: [
+      resolve(),
+      commonjs(),
+      typescript({ tsconfig: "./tsconfig.json" }),
+      postcss({
+        modules: true,
+        extract: false,
+        inject: false,
+        use: ["sass"],
+      }),
+    ],
+  },
   {
     input: "dist/types/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
