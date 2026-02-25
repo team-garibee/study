@@ -44,6 +44,7 @@
   "scripts": {
     "watch": "rollup -cw",
     "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
     "build": "tsc -p tsconfig.build.json && rollup -c && mv dist/esm/index.css dist/index.css && rm -rf dist/types",
     "clean": "rm -rf dist"
   },

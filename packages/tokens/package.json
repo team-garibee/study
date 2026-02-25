@@ -33,6 +33,7 @@
   "scripts": {
     "watch": "rollup -cw",
     "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
     "build": "tsc -p tsconfig.build.json && rollup -c",
     "clean": "rm -rf dist"
   },
