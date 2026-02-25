@@ -3,6 +3,7 @@ import tseslint from 'typescript-eslint';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import prettierConfig from 'eslint-config-prettier';
 
 export default [
   // 빌드 결과물과 자동 생성 타입 선언 파일은 ESLint 검사에서 제외하도록
@@ -59,4 +60,5 @@ export default [
       'react-hooks/exhaustive-deps': 'warn', // useEffect 등의 deps 배열 누락 경고
     },
   },
+  prettierConfig,
 ];
