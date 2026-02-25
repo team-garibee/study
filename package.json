@@ -11,8 +11,11 @@
     "dev": "turbo run dev",
     "clean": "turbo run clean",
     "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "stylelint": "stylelint \"**/*.{css,scss}\"",
+    "stylelint:fix": "stylelint \"**/*.{css,scss}\" --fix",
     "ls-lint": "ls-lint",
     "prepare": "husky"
   },
