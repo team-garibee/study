@@ -1,4 +1,6 @@
-const config = {
+/** @type {import('@commitlint/types').UserConfig} */
+
+export default {
   parserPreset: {
     parserOpts: {
       headerPattern: '^(?<type>.+):\\s(?<subject>.+)$',
@@ -26,5 +28,3 @@ const config = {
     ],
   },
 };
-
-export default config;
