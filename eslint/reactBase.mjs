@@ -5,6 +5,12 @@ import jsxA11y from 'eslint-plugin-jsx-a11y';
 export const reactBaseConfig = {
   files: ['**/*.{tsx,jsx}'],
 
+  languageOptions: {
+    parserOptions: {
+      ecmaFeatures: { jsx: true },
+    },
+  },
+
   plugins: {
     react,
     'react-hooks': reactHooks,
@@ -29,7 +35,6 @@ export const reactBaseConfig = {
     'react/jsx-no-useless-fragment': 'warn',
     'react/jsx-no-constructed-context-values': 'warn',
     'react/jsx-boolean-value': ['warn', 'never'],
-    // TODO: 컴포넌트 함수 선언 어떤 걸로 할지 정하기
     'react/function-component-definition': [
       'warn',
       {
