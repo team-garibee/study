@@ -1,0 +1,7 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title='Introduction' />
+
+# Mumukji Design System
+
+Mumukji 디자인 시스템에 오신 것을 환영합니다.
