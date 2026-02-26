@@ -24,7 +24,7 @@
       "pnpm exec eslint --fix",
       "pnpm exec prettier --write"
     ],
-    "**/*.{json,md,html}": [
+    "**/*.{json,md,html,yml,yaml,mjs,cjs}": [
       "pnpm exec prettier --write"
     ],
     "**/*.{scss,css}": [
