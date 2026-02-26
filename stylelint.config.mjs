@@ -11,5 +11,8 @@ export default {
     'selector-class-pattern': null,
     'scss/dollar-variable-pattern': null,
     'scss/comment-no-empty': true,
+    'scss/no-duplicate-dollar-variables': true,
+    'color-no-invalid-hex': true,
+    'shorthand-property-no-redundant-values': true,
   },
 };
