@@ -1,18 +1,17 @@
 import js from '@eslint/js';
 import globals from 'globals';
-import tsParser from '@typescript-eslint/parser';
-import tseslint from '@typescript-eslint/eslint-plugin';
+import tseslint from 'typescript-eslint';
 import importPlugin from 'eslint-plugin-import';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
 
 export const baseConfig = [
   js.configs.recommended,
+  ...tseslint.configs.strict,
   eslintConfigPrettier,
   {
     files: ['**/*.{ts,tsx,js,jsx}'],
-
     languageOptions: {
-      parser: tsParser,
+      parser: tseslint.parser,
       parserOptions: {
         sourceType: 'module',
         ecmaVersion: 'latest',
@@ -24,7 +23,7 @@ export const baseConfig = [
     },
 
     plugins: {
-      '@typescript-eslint': tseslint,
+      '@typescript-eslint': tseslint.plugin,
       import: importPlugin,
     },
 
@@ -36,12 +35,11 @@ export const baseConfig = [
 
     rules: {
       /* TypeScript */
-      '@typescript-eslint/no-unused-vars': ['error', { varsIgnorePattern: '^_' }],
-      '@typescript-eslint/consistent-type-imports': 'error',
-      '@typescript-eslint/no-explicit-any': 'error',
-      /** TODO: 리턴 타입 명시할지 말지 정하기 */
-      '@typescript-eslint/explicit-module-boundary-types': 'warn',
-      '@typescript-eslint/explicit-function-return-type': 'warn',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { varsIgnorePattern: '^_' },
+      ],
+      '@typescript-eslint/no-non-null-assertion': 'warn',
       '@typescript-eslint/naming-convention': [
         'error',
         {
@@ -61,7 +59,14 @@ export const baseConfig = [
       'import/order': [
         'error',
         {
-          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+          groups: [
+            'builtin',
+            'external',
+            'internal',
+            'parent',
+            'sibling',
+            'index',
+          ],
           alphabetize: { order: 'asc', caseInsensitive: true },
           'newlines-between': 'never',
         },
@@ -69,6 +74,7 @@ export const baseConfig = [
       'import/no-unresolved': 'off',
       'import/no-duplicates': 'error',
       'import/newline-after-import': 'warn',
+
       /* style */
       curly: ['error', 'all'],
       'prefer-destructuring': [
@@ -80,6 +86,7 @@ export const baseConfig = [
           },
         },
       ],
+      eqeqeq: 'error',
       'no-var': 'error',
       'no-console': 'warn',
       'no-debugger': 'warn',
