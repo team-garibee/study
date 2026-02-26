@@ -17,7 +17,11 @@ export default defineConfig([
   ...baseConfig,
   {
     ...reactBaseConfig,
-    files: ['packages/ui/**/*.{tsx,jsx}', 'packages/icons/**/*.{tsx,jsx}'],
+    files: [
+      'packages/ui/**/*.{tsx,jsx}',
+      'packages/icons/**/*.{tsx,jsx}',
+      'apps/storybook/**/*.{tsx,jsx}',
+    ],
     rules: {
       ...reactBaseConfig.rules,
       'import/no-default-export': 'error',

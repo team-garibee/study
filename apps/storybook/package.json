@@ -1,0 +1,31 @@
+{
+  "name": "@mumukji/storybook",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Storybook for the Mumukji design system.",
+  "author": "team-garibee",
+  "license": "MIT",
+  "scripts": {
+    "dev": "storybook dev -p 6006",
+    "build": "storybook build",
+    "clean": "rm -rf storybook-static"
+  },
+  "dependencies": {
+    "@mumukji/icons": "workspace:*",
+    "@mumukji/tokens": "workspace:*",
+    "@mumukji/ui": "workspace:*"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^8.0.0",
+    "@storybook/addon-interactions": "^8.0.0",
+    "@storybook/react-vite": "^8.0.0",
+    "@storybook/test": "^8.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sass": "^1.97.3",
+    "storybook": "^8.0.0",
+    "vite": "^6.0.0"
+  }
+}

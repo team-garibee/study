@@ -26,3 +26,6 @@ ignore:
   - .git
   - .vscode
   - .husky
+  - '**/.storybook'
+  - storybook-static
+  - '**/storybook-static'
