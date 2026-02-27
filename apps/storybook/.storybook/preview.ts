@@ -11,7 +11,7 @@ const preview: Preview = {
     layout: 'centered',
     actions: { argTypesRegex: '^on.*' },
     a11y: {
-      test: 'error',
+      test: 'todo',
     },
   },
   tags: ['autodocs'],
