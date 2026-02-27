@@ -16,6 +16,9 @@
     "format:check": "prettier --check .",
     "stylelint": "stylelint \"**/*.{css,scss}\"",
     "stylelint:fix": "stylelint \"**/*.{css,scss}\" --fix",
+    "test": "turbo run test",
+    "test:storybook": "turbo run test --filter=storybook",
+    "chromatic": "turbo run chromatic --filter=storybook",
     "ls-lint": "ls-lint",
     "prepare": "husky"
   },
