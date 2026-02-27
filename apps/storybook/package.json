@@ -1,5 +1,5 @@
 {
-  "name": "storybook",
+  "name": "@mumukji/storybook",
   "private": true,
   "type": "module",
   "description": "Storybook for the Mumukji design system.",
