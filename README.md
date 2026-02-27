@@ -23,9 +23,8 @@ mumukji/
 - TypeScript 설정
 - Rollup 세팅
 - Lint / Prettier / Husky
-- Storybook
-- Test + CI
-- Changesets
+- Storybook + Test
+- CI + Changesets
 
 ## 🔁 진행 방식
 

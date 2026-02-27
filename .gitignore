@@ -31,3 +31,8 @@ coverage
 
 # TypeScript
 *.tsbuildinfo
+
+# storybook
+*.log
+*storybook.log
+storybook-static

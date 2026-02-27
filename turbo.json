@@ -7,6 +7,12 @@
       "dependsOn": ["^build"]
     },
 
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": ["^build"]
+    },
+
     "typecheck": {
       "dependsOn": ["^typecheck"],
       "outputs": []
@@ -18,6 +24,11 @@
     },
 
     "lint:fix": {
+      "cache": false,
+      "outputs": []
+    },
+
+    "test": {
       "cache": false,
       "outputs": []
     },
