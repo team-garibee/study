@@ -2,27 +2,35 @@
   "name": "storybook",
   "private": true,
   "type": "module",
+  "description": "Storybook for the Mumukji design system.",
   "scripts": {
     "dev": "storybook dev -p 6006",
     "build": "storybook build",
-    "clean": "rm -rf storybook-static"
+    "typecheck": "tsc --noEmit",
+    "chromatic": "chromatic --project-token=$CHROMATIC_PROJECT_TOKEN",
+    "clean": "rm -rf storybook-static",
+    "test": "vitest run"
   },
   "dependencies": {
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
     "@mumukji/icons": "workspace:*",
     "@mumukji/tokens": "workspace:*",
-    "@mumukji/ui": "workspace:*"
+    "@mumukji/ui": "workspace:*",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^5.0.1",
     "@storybook/addon-a11y": "^10.2.13",
     "@storybook/addon-docs": "^10.2.13",
+    "@storybook/addon-vitest": "^10.2.13",
     "@storybook/react-vite": "^10.2.13",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^5.1.1",
+    "@vitejs/plugin-react": "^5.1.4",
+    "@vitest/browser-playwright": "^4.0.18",
+    "playwright": "^1.58.2",
     "storybook": "^10.2.13",
-    "vite": "^7.3.1"
+    "vite": "^7.3.1",
+    "vitest": "^4.0.18"
   }
 }
