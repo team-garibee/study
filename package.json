@@ -7,11 +7,12 @@
   "packageManager": "pnpm@10.26.1",
   "scripts": {
     "build": "turbo run build",
-    "typecheck": "turbo run typecheck",
     "dev": "turbo run dev",
     "clean": "turbo run clean",
+    "typecheck": "turbo run typecheck",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
+    "ls-lint": "ls-lint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "stylelint": "stylelint \"**/*.{css,scss}\"",
@@ -19,7 +20,9 @@
     "test": "turbo run test",
     "test:storybook": "turbo run test --filter=@mumukji/storybook",
     "chromatic": "turbo run chromatic --filter=@mumukji/storybook",
-    "ls-lint": "ls-lint",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "pnpm build && changeset publish",
     "prepare": "husky"
   },
   "lint-staged": {
@@ -36,6 +39,7 @@
     ]
   },
   "devDependencies": {
+    "@changesets/cli": "^2.29.8",
     "@commitlint/cli": "^20.4.2",
     "@eslint/js": "^9.39.3",
     "@ls-lint/ls-lint": "^2.3.1",
