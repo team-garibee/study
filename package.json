@@ -19,6 +19,9 @@
     "test": "turbo run test",
     "test:storybook": "turbo run test --filter=@mumukji/storybook",
     "chromatic": "turbo run chromatic --filter=@mumukji/storybook",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "pnpm build && changeset publish",
     "ls-lint": "ls-lint",
     "prepare": "husky"
   },
