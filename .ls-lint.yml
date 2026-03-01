@@ -16,6 +16,7 @@ ls:
     .tsx: PascalCase
 
 ignore:
+  - .changeset
   - node_modules
   - '**/node_modules'
   - dist
