@@ -30,3 +30,5 @@ ignore:
   - '**/.storybook'
   - storybook-static
   - '**/storybook-static'
+  - .github
+  - .changeset
