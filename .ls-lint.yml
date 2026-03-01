@@ -3,30 +3,33 @@ ls:
   .dir: kebabcase
 
   # 기본 파일 규칙 (camelCase)
-  .ts: camelcase
   .js: camelcase
+  .mdx: kebabcase
+  .ts: camelcase
 
   # React 컴포넌트는 PascalCase
-  packages/ui:
-    .dir: kebabcase
-    .tsx: PascalCase
-
   packages/icons:
     .dir: kebabcase
     .tsx: PascalCase
 
+  packages/ui:
+    .dir: kebabcase
+    .tsx: PascalCase
+
 ignore:
-  - node_modules
-  - '**/node_modules'
-  - dist
-  - build
-  - coverage
-  - .turbo
-  - '**/.turbo'
+  - .changeset
   - .git
-  - .vscode
+  - .github
   - .husky
   - .storybook
   - '**/.storybook'
+  - .turbo
+  - '**/.turbo'
+  - .vscode
+  - build
+  - coverage
+  - dist
+  - node_modules
+  - '**/node_modules'
   - storybook-static
   - '**/storybook-static'
