@@ -9,7 +9,7 @@
     "typecheck": "tsc --noEmit",
     "chromatic": "chromatic",
     "clean": "rm -rf storybook-static",
-    "test": "vitest run"
+    "test": "vitest run --passWithNoTests"
   },
   "dependencies": {
     "@mumukji/icons": "workspace:*",
