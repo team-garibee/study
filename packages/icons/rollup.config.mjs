@@ -23,7 +23,11 @@ export default [
         preserveModulesRoot: 'src',
       },
     ],
-    plugins: [resolve(), commonjs(), typescript({ tsconfig: './tsconfig.json' })],
+    plugins: [
+      resolve(),
+      commonjs(),
+      typescript({ tsconfig: './tsconfig.json' }),
+    ],
   },
   {
     input: 'dist/types/index.d.ts',

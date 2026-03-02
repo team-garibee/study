@@ -7,7 +7,10 @@ export default {
     'stylelint-config-property-sort-order-smacss',
   ],
   rules: {
-    'selector-pseudo-class-no-unknown': [true, { ignorePseudoClasses: ['global'] }],
+    'selector-pseudo-class-no-unknown': [
+      true,
+      { ignorePseudoClasses: ['global'] },
+    ],
     'selector-class-pattern': null,
     'scss/dollar-variable-pattern': null,
     'scss/comment-no-empty': true,

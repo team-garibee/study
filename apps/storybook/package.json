@@ -7,9 +7,9 @@
     "dev": "storybook dev -p 6006",
     "build": "storybook build",
     "typecheck": "tsc --noEmit",
-    "chromatic": "chromatic --project-token=$CHROMATIC_PROJECT_TOKEN",
+    "chromatic": "chromatic",
     "clean": "rm -rf storybook-static",
-    "test": "vitest run"
+    "test": "vitest run --passWithNoTests"
   },
   "dependencies": {
     "@mumukji/icons": "workspace:*",
@@ -28,6 +28,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.4",
     "@vitest/browser-playwright": "^4.0.18",
+    "chromatic": "^15.2.0",
     "playwright": "^1.58.2",
     "storybook": "^10.2.13",
     "vite": "^7.3.1",
