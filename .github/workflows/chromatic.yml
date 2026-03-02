@@ -1,4 +1,4 @@
-name: "Chromatic-Storybook Deployment"
+name: "🎨 Chromatic"
 
 on:
   pull_request: 

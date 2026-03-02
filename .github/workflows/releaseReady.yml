@@ -1,4 +1,4 @@
-name: Release Ready
+name: "🧑‍⚖️ Release Ready"
 
 on:
   pull_request:
