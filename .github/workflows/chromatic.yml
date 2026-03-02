@@ -3,8 +3,6 @@ name: "🎨 Chromatic"
 on:
   pull_request: 
     branches:
-      # TODO: PR 테스트용 제거 예정
-      - main
       - dev
     paths: 
       - 'apps/storybook/**'
