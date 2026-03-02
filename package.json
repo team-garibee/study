@@ -20,7 +20,9 @@
     "test:storybook": "turbo run test --filter=@mumukji/storybook",
     "chromatic": "turbo run chromatic --filter=@mumukji/storybook",
     "ls-lint": "ls-lint",
-    "prepare": "husky"
+    "prepare": "husky",
+    "changeset": "changeset",
+    "changeset:status": "changeset status"
   },
   "lint-staged": {
     "**/*.{ts,tsx}": [
