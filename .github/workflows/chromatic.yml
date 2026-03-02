@@ -4,9 +4,11 @@ on:
   pull_request: 
     branches:
       - dev
-    paths: 
-      - 'apps/storybook/**'
-      - 'packages/**'
+    paths:
+        - 'apps/storybook/**'
+        - 'packages/**/src/**/*.{ts,tsx,scss,json}'
+        - '**/*.stories.@(ts|tsx)'
+        - '**/*.mdx'
 
 jobs:
   chromatic-deploy:
