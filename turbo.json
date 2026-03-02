@@ -35,12 +35,6 @@
 
     "clean": {
       "cache": false
-    },
-
-    "chromatic": {
-      "dependsOn": ["build"],
-      "cache": false,
-      "outputs": []
     }
   }
 }
