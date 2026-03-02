@@ -23,7 +23,8 @@ jobs:
           node-version: 22
           cache: pnpm
 
-      - run: pnpm install --frozen-lockfile
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: Cache Turbo
         uses: actions/cache@v4
@@ -45,8 +46,11 @@ jobs:
       - name: 🧠 Typecheck
         run: pnpm turbo run typecheck
       
-      - name: 🧪 Test
-        run: pnpm turbo run test
-      
       - name: 🏗 Build
         run: pnpm turbo run build
+      
+      - name: ⚙️ Install Playwright browsers
+        run: pnpm --filter @mumukji/storybook exec playwright install --with-deps chromium
+      
+      - name: 🧪 Test
+        run: pnpm turbo run test
