@@ -22,7 +22,9 @@
     "ls-lint": "ls-lint",
     "prepare": "husky",
     "changeset": "changeset",
-    "changeset:status": "changeset status"
+    "changeset:status": "changeset status",
+    "version-packages": "changeset version",
+    "release": "pnpm build && changeset publish"
   },
   "lint-staged": {
     "**/*.{ts,tsx}": [
