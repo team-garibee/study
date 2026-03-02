@@ -25,6 +25,7 @@ ignore:
   - .turbo
   - '**/.turbo'
   - .git
+  - .github
   - .vscode
   - .husky
   - .storybook
