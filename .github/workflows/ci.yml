@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - dev
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.26.1
+          run_install: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Cache Turbo
+        uses: actions/cache@v4
+        with:
+          path: .turbo
+          key: turbo-${{ runner.os }}-${{ github.ref }}
+          restore-keys: |
+            turbo-${{ runner.os }}-
+      
+      - name: 🔎 LS-Lint
+        run: pnpm ls-lint
+      
+      - name: 🎨 Format Check
+        run: pnpm format:check  
+
+      - name: 🧹 Lint
+        run: pnpm turbo run lint
+
+      - name: 🧠 Typecheck
+        run: pnpm turbo run typecheck
+      
+      - name: 🧪 Test
+        run: pnpm turbo run test
+      
+      - name: 🏗 Build
+        run: pnpm turbo run build
