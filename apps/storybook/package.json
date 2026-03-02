@@ -7,7 +7,7 @@
     "dev": "storybook dev -p 6006",
     "build": "storybook build",
     "typecheck": "tsc --noEmit",
-    "chromatic": "chromatic --project-token=$CHROMATIC_PROJECT_TOKEN",
+    "chromatic": "chromatic",
     "clean": "rm -rf storybook-static",
     "test": "vitest run"
   },

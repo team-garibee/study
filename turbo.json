@@ -33,6 +33,11 @@
       "outputs": []
     },
 
+    "chromatic": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    },
+
     "clean": {
       "cache": false
     }

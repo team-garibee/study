@@ -1,0 +1,81 @@
+name: "Chromatic-Storybook Deployment"
+
+on:
+  pull_request: 
+    branches: 
+      - dev
+    paths: 
+      - 'apps/storybook/**'
+      - 'packages/**'
+
+jobs:
+  chromatic-deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.26.1
+          run_install: false
+
+      - name: Setup node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      
+      - name: Publish to Chromatic
+        id: chromatic
+        uses: chromaui/action@latest
+        with:
+          exitZeroOnChanges: true
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Comment PR with Storybook link
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            🎨 **스토리북 배포 링크 확인**
+            
+            - 🔗 Storybook: ${{ steps.chromatic.outputs.storybookUrl }}
+            - 🧩 Build: ${{ steps.chromatic.outputs.buildUrl }}
+
+      - name: Publish Summary
+        run: |
+          echo "## 🎨 Chromatic 결과 요약" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| 항목 | 값 |" >> $GITHUB_STEP_SUMMARY
+          echo "| --- | --- |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🔗 Storybook Preview | ${{ steps.chromatic.outputs.storybookUrl }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🧩 Build Page | ${{ steps.chromatic.outputs.buildUrl }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 📦 Story Count | ${{ steps.chromatic.outputs.componentCount }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🎯 Changed Stories | ${{ steps.chromatic.outputs.changeCount }} |" >> $GITHUB_STEP_SUMMARY
+
+      - name: Discord Webhook
+        uses: tsickert/discord-webhook@v7.0.0
+        with:
+          webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
+          username: "Chromatic Bot - 머먹지"
+          avatar-url: "https://img.notionusercontent.com/s3/prod-files-secure%2Fd89212bd-c144-4566-9010-ebe30df48219%2F2d9d2239-c74b-481c-8373-8dc2cf3abe1c%2Ffavicon_32_1.png/size/w=1960?exp=1772505263&sig=QgMuULWcx9ZYh4FyT3LMhWW_LOg_Lc3n0N88wgLa59Q&id=3175213d-cd4c-8084-a0a2-e8811becb27b&table=block&userId=7c651602-8ef2-4223-8e7e-fe17a4696f75"
+          content: |
+            🎨 **Chromatic 배포 완료**
+            
+            📌 PR: ${{ github.event.pull_request.title }}
+            👤 Author: ${{ github.event.pull_request.user.login }}
+            
+            🔗 Storybook: ${{ steps.chromatic.outputs.storybookUrl }}
+            🧩 Build: ${{ steps.chromatic.outputs.buildUrl }}
