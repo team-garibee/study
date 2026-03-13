@@ -13,6 +13,7 @@
   "files": [
     "dist"
   ],
+  "type": "module",
   "sideEffects": false,
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -27,7 +28,9 @@
       "import": "./dist/esm/*.js",
       "require": "./dist/cjs/*.js",
       "types": "./dist/index.d.ts"
-    }
+    },
+    "./arrow-right.svg": "./dist/svg/arrow-right.svg",
+    "./korean.svg": "./dist/svg/korean.svg"
   },
   "keywords": [
     "design-system",
@@ -39,7 +42,8 @@
   "scripts": {
     "watch": "rollup -cw",
     "typecheck": "tsc --noEmit",
-    "build": "tsc -p tsconfig.build.json && rollup -c && rm -rf dist/types",
+    "generate:icons": "node scripts/generate-icons.js",
+    "build": "node scripts/generate-icons.js && tsc -p tsconfig.build.json && rollup -c && rm -rf dist/types",
     "clean": "rm -rf dist",
     "lint": "eslint .",
     "lint:fix": "eslint --fix ."
@@ -52,6 +56,9 @@
     "@rollup/plugin-commonjs": "^29.0.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-typescript": "^12.3.0",
+    "@svgr/core": "^8.1.0",
+    "@svgr/plugin-jsx": "^8.1.0",
+    "@svgr/plugin-svgo": "^8.1.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "react": "^19.2.4",
