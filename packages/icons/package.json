@@ -28,7 +28,9 @@
       "import": "./dist/esm/*.js",
       "require": "./dist/cjs/*.js",
       "types": "./dist/index.d.ts"
-    }
+    },
+    "./arrow-right.svg": "./dist/svg/arrow-right.svg",
+    "./korean.svg": "./dist/svg/korean.svg"
   },
   "keywords": [
     "design-system",

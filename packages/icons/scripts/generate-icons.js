@@ -110,6 +110,24 @@ async function run() {
 
   fs.writeFileSync(path.resolve(__dirname, '../src/index.ts'), indexContent, 'utf-8');
   console.log('✅ src/index.ts');
+
+  // package.json exports에 SVG 경로 자동 등록
+  const pkgPath = path.resolve(__dirname, '../package.json');
+  const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
+
+  const svgExports = {};
+  for (const { distSvgName } of svgFiles) {
+    svgExports[`./${distSvgName}`] = `./dist/svg/${distSvgName}`;
+  }
+
+  pkg.exports = {
+    '.': pkg.exports['.'],
+    './*': pkg.exports['./*'],
+    ...svgExports,
+  };
+
+  fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + '\n', 'utf-8');
+  console.log('✅ package.json exports');
 }
 
 run();
