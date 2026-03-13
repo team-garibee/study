@@ -102,6 +102,14 @@ async function run() {
     fs.copyFileSync(filePath, path.join(DIST_SVG_DIR, distSvgName));
     console.log(`✅ dist/svg/${distSvgName}`);
   }
+
+  // src/index.ts 자동 생성
+  const indexContent = svgFiles
+    .map(({ componentName }) => `export { ${componentName} } from "./react/${componentName}";`)
+    .join('\n') + '\n';
+
+  fs.writeFileSync(path.resolve(__dirname, '../src/index.ts'), indexContent, 'utf-8');
+  console.log('✅ src/index.ts');
 }
 
 run();
