@@ -85,7 +85,7 @@ export const IconFoodKorean = (props: SVGProps<SVGSVGElement>) => (
     </g>
     <defs>
       <clipPath id='a'>
-        <rect fill='#fff' rx={24} />
+        <rect width={48} height={48} fill='#fff' rx={24} />
       </clipPath>
       <clipPath id='b'>
         <path fill='#fff' d='M0 0h48v48H0z' />

@@ -69,7 +69,7 @@ async function transformToReact(svgContent, componentName, category) {
               },
             },
           },
-          { name: 'removeAttrs', params: { attrs: '(aria-hidden|width|height)' } },
+          { name: 'removeAttrs', params: { attrs: 'aria-hidden' } },
           ...(!isFood ? [{ name: 'convertColors', params: { currentColor: true } }] : []),
         ],
       },
