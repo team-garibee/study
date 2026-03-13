@@ -1,25 +1,21 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { transform } from '@svgr/core';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SVG_DIR = path.resolve(__dirname, '../src/svg');
-
-function getCategory(filePath) {
-  return path.basename(path.dirname(filePath));
-}
+const REACT_DIR = path.resolve(__dirname, '../src/react');
+const DIST_SVG_DIR = path.resolve(__dirname, '../dist/svg');
 
 function getComponentName(fileName, category) {
-  // icon-korean.svg -> korean, icon-arrow-right.svg -> arrow-right
   const name = fileName.replace(/^icon-/, '').replace(/\.svg$/, '');
 
-  // kebab-case -> PascalCase
   const pascal = name
     .split('-')
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join('');
 
-  // food -> IconFoodKorean, basic -> IconTrash
   if (category === 'food') {
     return `Icon${category.charAt(0).toUpperCase() + category.slice(1)}${pascal}`;
   }
@@ -28,7 +24,6 @@ function getComponentName(fileName, category) {
 }
 
 function getDistSvgName(fileName) {
-  // icon-korean.svg -> korean.svg
   return fileName.replace(/^icon-/, '');
 }
 
@@ -55,5 +50,58 @@ function getSvgFiles() {
   return result;
 }
 
-const svgFiles = getSvgFiles();
-console.log(svgFiles);
+async function transformToReact(svgContent, componentName, category) {
+  const isFood = category === 'food';
+
+  const code = await transform(
+    svgContent,
+    {
+      typescript: true,
+      dimensions: false,
+      svgo: true,
+      svgoConfig: {
+        plugins: [
+          {
+            name: 'preset-default',
+            params: {
+              overrides: {
+                removeViewBox: false,
+              },
+            },
+          },
+          { name: 'removeAttrs', params: { attrs: '(aria-hidden|width|height)' } },
+          ...(!isFood ? [{ name: 'convertColors', params: { currentColor: true } }] : []),
+        ],
+      },
+      plugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx'],
+    },
+    { componentName }
+  );
+
+  // export default -> named export로 변환
+  return code
+    .replace(/export default \w+;?\n?/, '')
+    .replace(`const ${componentName}`, `export const ${componentName}`);
+}
+
+async function run() {
+  const svgFiles = getSvgFiles();
+
+  fs.mkdirSync(REACT_DIR, { recursive: true });
+  fs.mkdirSync(DIST_SVG_DIR, { recursive: true });
+
+  for (const { filePath, category, componentName, distSvgName } of svgFiles) {
+    const svgContent = fs.readFileSync(filePath, 'utf-8');
+
+    // React 컴포넌트 변환 후 src/react/ 에 저장
+    const code = await transformToReact(svgContent, componentName, category);
+    fs.writeFileSync(path.join(REACT_DIR, `${componentName}.tsx`), code, 'utf-8');
+    console.log(`✅ ${componentName}.tsx`);
+
+    // 최적화된 SVG를 dist/svg/ 에 복사
+    fs.copyFileSync(filePath, path.join(DIST_SVG_DIR, distSvgName));
+    console.log(`✅ dist/svg/${distSvgName}`);
+  }
+}
+
+run();
