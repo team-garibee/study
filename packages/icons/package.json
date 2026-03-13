@@ -40,7 +40,8 @@
   "scripts": {
     "watch": "rollup -cw",
     "typecheck": "tsc --noEmit",
-    "build": "tsc -p tsconfig.build.json && rollup -c && rm -rf dist/types",
+    "generate:icons": "node scripts/generate-icons.js",
+    "build": "node scripts/generate-icons.js && tsc -p tsconfig.build.json && rollup -c && rm -rf dist/types",
     "clean": "rm -rf dist",
     "lint": "eslint .",
     "lint:fix": "eslint --fix ."
