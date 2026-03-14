@@ -5,6 +5,7 @@
   "private": false,
   "author": "team-garibee",
   "license": "MIT",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/team-garibee/mumukji-ui.git",
@@ -27,7 +28,8 @@
       "import": "./dist/esm/*.js",
       "require": "./dist/cjs/*.js",
       "types": "./dist/index.d.ts"
-    }
+    },
+    "./*.svg": "./dist/svg/*.svg"
   },
   "keywords": [
     "design-system",
@@ -39,7 +41,8 @@
   "scripts": {
     "watch": "rollup -cw",
     "typecheck": "tsc --noEmit",
-    "build": "tsc -p tsconfig.build.json && rollup -c && rm -rf dist/types",
+    "generate:icons": "node scripts/generateIcons.js",
+    "build": "pnpm generate:icons && tsc -p tsconfig.build.json && rollup -c && rm -rf dist/types",
     "clean": "rm -rf dist",
     "lint": "eslint .",
     "lint:fix": "eslint --fix ."
